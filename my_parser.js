@@ -30,4 +30,18 @@ fs.readFile('example_log.txt', function (err, logData) {
 
     console.log(results);
     // { A: 2, B: 14, C: 6 }
+    lines.forEach(function(line) {
+        var parts = line.split(' ');
+        var letter = parts[1];
+        var count = parseInt(parts[2]);
+
+        if(!results[letter]) {
+            results[letter] = 0;
+        }
+
+        results[letter] += parseInt(count);
+    });
+
+    console.log(results);
+    // { A: 2, B: 14, C: 6 }
 });
